@@ -1,0 +1,207 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Documentação Projeto Elevador";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Projeto Elevador</h1>
+	<h3>Documentação do Projeto Final da Jornada Microsoft</h3>
+</div>
+<div class="row justify-content-between flex-nowrap">
+	<div class="flex-grow-1 d-flex flex-column">
+		<section id="Intro">
+			<h2>1 - Introdução</h2>
+			<p>O projeto final da Jornada Microsoft trata-se de um programa simples para gerenciamento de um elevador em um prédio.</p>
+			<p>Este programa consiste de 2 etapas, a etapa de Inicialização, na qual o usuário deve inserir informações necessárias para a execução do programa, e a etapa de Operação, na qual um menu é apresentado e o usuário seleciona as ações que serão "executadas pelo/no elevador".</p>
+		</section>
+		<section id="Init">
+			<h2>2 - Inicialização</h2>
+			<p>Para a inicialização do programa, é necessário que o usuário insira duas informações:</p>
+			<ol>
+				<li>Capacidade total do elevador (<a href="#imgInfosEErros">fig1</a>); e</li>
+				<li>Número de andares do prédio</li>
+			</ol>
+			<div class="row justify-content-center">
+				<figure class="figure">
+					<img id="imgPrimeiraInfo" class="figure-img" src="Assets/PrimeiraInformacao.png" alt="Console com texto solicitando ao usuário a inserção da primeira informação para a inicialização do programa, no caso, a informação seria a capacidade total do elevador" />
+					<figcaption class="figure-caption text-center" for="#imgPrimeiraInfo">fig1 - Primeira Informação solicitada</figcaption>
+				</figure>
+			</div>
+			<p>
+				Espera-se que o usuário forneça um valor inteiro para ambas as informações, caso um valor inválido seja inserido, o programa apresentará uma mensagem de erro e solicitará que o usuário insira um valor válido (<a href="#imgPrimeiraInfo">fig2</a>).
+				Estas informações são necessárias para a definição dos limites de quanto o elevador consegue subir e quantas pessoas podem estar dentro do elevador ao mesmo tempo.
+			</p>
+			<div class="row justify-content-center">
+				<figure class="figure">
+					<img id="imgInfosEErros" class="figure-img" src="Assets/InformacoesEMensDeErro.png" alt="Console com texto apresentando mensagens de erro para ambas as informações necessárias para a inicialização do programa" />
+					<figcaption class="figure-caption text-center" for="#imgInfosEErros">fig2 - Informações solicitadas e mensagens de erro</figcaption>
+				</figure>
+			</div>
+			<p>
+				Após a inserção das informações, será apresentado no console o menu com as opções de ações permitidas.
+			</p>
+		</section>
+		<section id="Menu">
+			<h2>3 - Menu de Opções</h2>
+			<p>O menu possui 6 opções de funcionalidades, além de uma opção para o encerramento do programa (<a href="#imgMenu">fig3</a>).</p>
+			<div class="row justify-content-center">
+				<figure class="figure">
+					<img id="imgMenu" class="figure-img" src="Assets/Menu.png" alt="Console com texto apresentando as sete opções disponíveis no menu." />
+					<figcaption class="figure-caption text-center" for="#imgMenu">fig3 - Menu do programa</figcaption>
+				</figure>
+			</div>
+			<p>As 7 opções do menu são:</p>
+			<ol>
+				<li>
+					<a href="#sectionEntrar">Entrar - Executa a ação de uma pessoa entrar no elevador</a>
+				</li>
+				<li>
+					<a href="#sectionSair">Sair - Executa a ação de uma pessoa sair do elevador</a>
+				</li>
+				<li>
+					<a href="#sectionSubir">Subir - Executa a ação de o elevador subir um andar</a>
+				</li>
+				<li>
+					<a href="#sectionDescer">Descer - Executa a ação de o elevador descer um andar</a>
+				</li>
+				<li>
+					<a href="#sectionVerificarAndar">Verificar andar atual - Apresenta o andar no qual o elevador está parado no momento</a>
+				</li>
+				<li>
+					<a href="#sectionVerificarLotacao">Verificar lotação atual - Apresenta a quantidade de pessoas dentro do elevador no momento</a>
+				</li>
+				<li>
+					<a>Sair - sair do programa</a>
+				</li>
+			</ol>
+			<p>
+				As opções 1 a 4 do Menu executam ações do/no elevador, enquanto as opções 5 e 6 apresentam informações referentes ao status atual do elevador. A opção 7 finaliza a execução do programa. Caso uma opção inválida seja selecionada, uma mensagem de erro é apresentada ao usuário (<a href="#imgOpcaoInvalida">fig4</a>)
+				Caso as operações realizadas pelas opções de 1 a 4 executem corretamente, uma mensagem de sucesso é apresentada ao usuário (<a href="#imgOpcaoSucesso">fig5</a>).
+			</p>
+			<div class="row justify-content-around">
+				<figure class="figure">
+					<img id="imgOpcaoInvalida" class="figure-img" src="Assets/OpcaoInvalida.png" alt="Console com texto apresentando uma mensagem de erro que indica que a opção selecionada do menu é inválida." />
+					<figcaption class="figure-caption text-center" for="#imgOpcaoInvalida">fig4 - Opção Inválida</figcaption>
+				</figure>
+				<figure class="figure">
+					<img id="imgOpcaoSucesso" class="figure-img" src="Assets/OpcaoSucesso.png" alt="Console com texto apresentando uma mensagem de sucesso após alguma dentre as opções 1 a 4 do menu ser selecionada." />
+					<figcaption class="figure-caption text-center" for="#imgOpcaoSucesso">fig5 - Operação executada com sucesso</figcaption>
+				</figure>
+			</div>
+			<p>As seções a seguir descrevem com um pouco mais de detalhes a execução das opções apresentadas.</p>
+			<section id="sectionEntrar">
+				<h3>3.1 - Entrar</h3>
+				<p>A funcionalidade <strong>Entrar</strong> adiciona uma pessoa ao elevador. Durante a execução desta funcionalidade, verifica-se se o elevador já está em sua capacidade máxima. Caso a operação seja executada sem problemas, uma mensagem de sucesso é apresentada ao usuário.</p>
+				<p>Caso a lotação máxima do elevador já tenha sido atingida, uma mensagem de erro é apresentada ao usuário informando que o elevador já está em sua capacidade máxima (<a href="#imgOpcao1Erro">fig6</a>).</p>
+				<div class="row justify-content-center">
+					<figure class="figure">
+						<img id="imgOpcao1Erro" class="figure-img" src="Assets/Opcao1Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 1 do Menu. A mensagem apresentada diz que a operação Entrar não foi executada com sucesso devido ao fato de o elevador já estar em sua lotação máxima." />
+						<figcaption class="figure-caption text-center" for="#imgOpcao1Erro">fig6 - Erro na execução da operação Entrar</figcaption>
+					</figure>
+				</div>
+			</section>
+			<section id="sectionSair">
+				<h3>3.2 - Sair</h3>
+				<p>A funcionalidade <strong>Sair</strong> remove uma pessoa do elevador. Durante a execução desta funcionalidade, verifica-se se o elevador já está vazio. Caso a operação seja executada sem problemas, uma mensagem de sucesso é apresentada ao usuário.</p>
+				<p>Caso o elevador já esteja vazio, uma mensagem de erro é apresentada ao usuário informando que não há pessoas dentro do elevador (<a href="#imgOpcao2Erro">fig7</a>).</p>
+				<div class="row justify-content-center">
+					<figure class="figure">
+						<img id="imgOpcao2Erro" class="figure-img" src="Assets/Opcao2Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 2 do Menu. A mensagem apresentada diz que a operação Sair não foi executada com sucesso devido ao fato de o elevador já estar vazio." />
+						<figcaption class="figure-caption text-center" for="#imgOpcao2Erro">fig7 - Erro na execução da operação Sair</figcaption>
+					</figure>
+				</div>
+			</section>
+			<section id="sectionSubir">
+				<h3>3.3 - Subir</h3>
+				<p>A funcionalidade <strong>Subir</strong> faz com que o elevador suba 1 andar. Durante a execução desta funcionalidade, verifica-se se o elevador já está no último andar do prédio. Caso a operação seja executada sem problemas, uma mensagem de sucesso é apresentada ao usuário.</p>
+				<p>Caso o elevador já se encontre no último andar, uma mensagem de erro é apresentada ao usuário informando que o elevador já está no último andar (<a href="#imgOpcao3Erro">fig8</a>).</p>
+				<div class="row justify-content-center">
+					<figure class="figure">
+						<img id="imgOpcao3Erro" class="figure-img" src="Assets/Opcao3Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 3 do Menu. A mensagem apresentada diz que a operação Subir não foi executada com sucesso devido ao fato de o elevador já estar posicionado no último andar do prédio." />
+						<figcaption class="figure-caption text-center" for="#imgOpcao3Erro">fig8 - Erro na execução da operação Subir</figcaption>
+					</figure>
+				</div>
+			</section>
+			<section id="sectionDescer">
+				<h3>3.4 - Descer</h3>
+				<p>A funcionalidade <strong>Descer</strong> faz com que o elevador desça 1 andar. Durante a execução desta funcionalidade, verifica-se se o elevador já está no térreo. Caso a operação seja executada sem problemas, uma mensagem de sucesso é apresentada ao usuário.</p>
+				<p>Caso o elevador já esteja no térreo, uma mensagem de erro é apresentada ao usuário informando que o elevador já se encontra no térreo (<a href="#imgOpcao4Erro">fig9</a>).</p>
+				<div class="row justify-content-center">
+					<figure class="figure">
+						<img id="imgOpcao4Erro" class="figure-img" src="Assets/Opcao4Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 4 do Menu. A mensagem apresentada diz que a operação Descer não foi executada com sucesso devido ao fato de o elevador já estar posicionado no térreo." />
+						<figcaption class="figure-caption text-center" for="#imgOpcao4Erro">fig9 - Erro na execução da operação Descer</figcaption>
+					</figure>
+				</div>
+			</section>
+			<section id="sectionVerificarAndar">
+				<h3>3.5 - Verificar andar atual</h3>
+				<p>A funcionalidade <strong>Verificar andar atual</strong> apresenta ao usuário qual o andar no qual o elevador está parado no momento.</p>
+				<p>Esta funcionalidade apresenta, como resposta, o andar atual e o número de andares no prédio (<a href="#imgOpcao5">fig10</a>).</p>
+				<div class="row justify-content-center">
+					<figure class="figure">
+						<img id="imgOpcao5" class="figure-img" src="Assets/Opcao5.png" alt="Console com texto apresentando uma mensagem de retorno após a seleção da opção 5 do Menu. A mensagem apresentada indica o andar que o elevador se encontra (3º andar no caso desta imagem) e a quantidade total de andares do prédio (5 no caso desta imagem)." />
+						<figcaption class="figure-caption text-center" for="#imgOpcao5">fig10 - Retorno da operação Verificar andar atual</figcaption>
+					</figure>
+				</div>
+			</section>
+			<section id="sectionVerificarLotacao">
+				<h3>3.6 - Verificar lotação atual</h3>
+				<p>A funcionalidade <strong>Verificar lotação atual</strong> apresenta ao usuário qual a quantidade de pessoas que estão dentro do elevador.</p>
+				<p>Esta funcionalidade apresenta, como resposta, a quantidade de pessoas dentro do elevador e a capacidade total do elevador (<a href="#imgOpcao6">fig11</a>).</p>
+				<div class="row justify-content-center">
+					<figure class="figure">
+						<img id="imgOpcao6" class="figure-img" src="Assets/Opcao6.png" alt="Console com texto apresentando uma mensagem de retorno após a seleção da opção 6 do Menu. A mensagem apresentada indica a quantidade de pessoas dentro do elevador ( andar no caso desta imagem) e a capacidade total do elevador (8 no caso desta imagem)." />
+						<figcaption class="figure-caption text-center" for="#imgOpcao6">fig11 - Retorno da operação Verificar lotação atual</figcaption>
+					</figure>
+				</div>
+			</section>
+		</section>
+	</div>
+	<div class="flex-grow-0 d-flex flex-column justify-content-around align-items-center" style="display:none !important">
+		<figure class="figure">
+			<img id="imgPrimeiraInfo" class="figure-img" src="Assets/PrimeiraInformacao.png" alt="Console com texto solicitando ao usuário a inserção da primeira informação para a inicialização do programa, no caso, a informação seria a capacidade total do elevador" />
+			<figcaption class="figure-caption text-center" for="#imgPrimeiraInfo">fig1 - Primeira Informação solicitada</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgInfosEErros" class="figure-img" src="Assets/InformacoesEMensDeErro.png" alt="Console com texto apresentando mensagens de erro para ambas as informações necessárias para a inicialização do programa" />
+			<figcaption class="figure-caption text-center" for="#imgInfosEErros">fig2 - Informações solicitadas e mensagens de erro</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgMenu" class="figure-img" src="Assets/Menu.png" alt="Console com texto apresentando as sete opções disponíveis no menu." />
+			<figcaption class="figure-caption text-center" for="#imgMenu">fig3 - Menu do programa</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcaoInvalida" class="figure-img" src="Assets/OpcaoInvalida.png" alt="Console com texto apresentando uma mensagem de erro que indica que a opção selecionada do menu é inválida." />
+			<figcaption class="figure-caption text-center" for="#imgOpcaoInvalida">fig4 - Opção Inválida</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcaoSucesso" class="figure-img" src="Assets/OpcaoSucesso.png" alt="Console com texto apresentando uma mensagem de sucesso após alguma dentre as opções 1 a 4 do menu ser selecionada." />
+			<figcaption class="figure-caption text-center" for="#imgOpcaoSucesso">fig5 - Operação executada com sucesso</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcao1Erro" class="figure-img" src="Assets/Opcao1Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 1 do Menu. A mensagem apresentada diz que a operação Entrar não foi executada com sucesso devido ao fato de o elevador já estar em sua lotação máxima." />
+			<figcaption class="figure-caption text-center" for="#imgOpcao1Erro">fig6 - Erro na execução da operação Entrar</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcao2Erro" class="figure-img" src="Assets/Opcao2Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 2 do Menu. A mensagem apresentada diz que a operação Sair não foi executada com sucesso devido ao fato de o elevador já estar vazio." />
+			<figcaption class="figure-caption text-center" for="#imgOpcao2Erro">fig7 - Erro na execução da operação Sair</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcao3Erro" class="figure-img" src="Assets/Opcao3Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 3 do Menu. A mensagem apresentada diz que a operação Subir não foi executada com sucesso devido ao fato de o elevador já estar posicionado no último andar do prédio." />
+			<figcaption class="figure-caption text-center" for="#imgOpcao3Erro">fig8 - Erro na execução da operação Subir</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcao4Erro" class="figure-img" src="Assets/Opcao4Erro.png" alt="Console com texto apresentando uma mensagem de erro após a seleção da opção 4 do Menu. A mensagem apresentada diz que a operação Descer não foi executada com sucesso devido ao fato de o elevador já estar posicionado no térreo." />
+			<figcaption class="figure-caption text-center" for="#imgOpcao4Erro">fig9 - Erro na execução da operação Descer</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcao5" class="figure-img" src="Assets/Opcao5.png" alt="Console com texto apresentando uma mensagem de retorno após a seleção da opção 5 do Menu. A mensagem apresentada indica o andar que o elevador se encontra (3º andar no caso desta imagem) e a quantidade total de andares do prédio (5 no caso desta imagem)." />
+			<figcaption class="figure-caption text-center" for="#imgOpcao5">fig10 - Retorno da operação Verificar andar atual</figcaption>
+		</figure>
+		<figure class="figure">
+			<img id="imgOpcao6" class="figure-img" src="Assets/Opcao6.png" alt="Console com texto apresentando uma mensagem de retorno após a seleção da opção 6 do Menu. A mensagem apresentada indica a quantidade de pessoas dentro do elevador ( andar no caso desta imagem) e a capacidade total do elevador (8 no caso desta imagem)." />
+			<figcaption class="figure-caption text-center" for="#imgOpcao6">fig11 - Retorno da operação Verificar lotação atual</figcaption>
+		</figure>
+	</div>
+</div>
